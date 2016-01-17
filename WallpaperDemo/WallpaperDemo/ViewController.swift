@@ -9,40 +9,41 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-  @IBOutlet weak var currentMonth: UILabel!
-  
-  @IBOutlet weak var imageView: UIImageView!
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-  }
-
-  
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  @IBAction func sliderUpdated(sender: AnyObject) {
-    let slider = sender as! UISlider
-    currentMonth.text = "\(Int(slider.value))"
-  }
-  
-  @IBAction func close(segue:UIStoryboardSegue) {
     
-  }
+    //MARK: - Vars
+    
+    //MARK: - Outlets
+    @IBOutlet weak var currentMonth: UILabel!
+    @IBOutlet weak var slider: UISlider!
+    
+    //MARK: - UIViewController
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        currentMonth.text = "\(Int(slider.value))"
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: - Actions
+    @IBAction func sliderUpdated(sender: AnyObject) {
+        let slider = sender as! UISlider
+        currentMonth.text = "\(Int(slider.value))"
+    }
     
     @IBAction func goTapped(sender:AnyObject) {
-      performSegueWithIdentifier("GoToWallpaper", sender: sender)
+        performSegueWithIdentifier("GoToWallpaper", sender: sender)
     }
-  
+    
+    //MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      if segue.identifier == "GoToWallpaper" {
-        let paperViewController = segue.destinationViewController as! PaperViewController
-        paperViewController.monthToShow = Int(currentMonth.text!)!
-      }
+        if segue.identifier == "GoToWallpaper" {
+            let paperViewController = segue.destinationViewController as! PaperViewController
+            paperViewController.monthToShow = Int(currentMonth.text!)!
+        }
     }
-
+    
 }
 

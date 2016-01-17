@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7dQ-OZ-lje">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="d2g-0a-wdv">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -63,12 +63,13 @@
                     <navigationItem key="navigationItem" id="iE9-ay-aSQ"/>
                     <connections>
                         <outlet property="currentMonth" destination="2I9-s8-Dpj" id="Bmc-gY-QpS"/>
-                        <segue destination="m0H-0w-Xvj" kind="modal" identifier="GoToWallpaper" id="Xf5-gd-95i"/>
+                        <outlet property="slider" destination="Bbq-Zf-r0V" id="aBW-9O-VMG"/>
+                        <segue destination="m0H-0w-Xvj" kind="push" identifier="GoToWallpaper" id="Xf5-gd-95i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Eo-Nf-3mx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="965"/>
+            <point key="canvasLocation" x="1680" y="965"/>
         </scene>
         <!--Paper View Controller-->
         <scene sceneID="dxD-yh-hcT">
@@ -90,7 +91,7 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Close"/>
                                 <connections>
-                                    <action selector="close:" destination="m0H-0w-Xvj" eventType="touchUpInside" id="ojs-w8-gZB"/>
+                                    <action selector="goBack:" destination="m0H-0w-Xvj" eventType="touchUpInside" id="96u-g6-eg8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -104,14 +105,38 @@
                             <constraint firstItem="OVu-0N-eTQ" firstAttribute="leading" secondItem="Vdf-on-YqD" secondAttribute="leading" id="tiP-ad-iZJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Smq-sP-R7x"/>
+                    <navigationItem key="navigationItem" id="Smq-sP-R7x">
+                        <barButtonItem key="rightBarButtonItem" title="Email" id="BOz-bt-1ZU">
+                            <connections>
+                                <action selector="mailPhoto" destination="m0H-0w-Xvj" id="BtT-sY-yYt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="OVu-0N-eTQ" id="5B2-fa-4hB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRm-Xg-Ilg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636" y="965"/>
+            <point key="canvasLocation" x="2168" y="965"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CPT-Pc-CTF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d2g-0a-wdv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bgO-op-KJG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7dQ-OZ-lje" kind="relationship" relationship="rootViewController" id="7bt-ze-bpp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k0m-2J-xwu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1148" y="965"/>
         </scene>
     </scenes>
     <resources>
